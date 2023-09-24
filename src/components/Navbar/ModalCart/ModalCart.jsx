@@ -29,7 +29,6 @@ const ModalCart = () => {
         return (acc += item.price * item.quantity)
       }, 0)
     
-
   return (
     <>
       {!hiddenCart && (
@@ -98,10 +97,11 @@ const ModalCart = () => {
                 <Submit 
                     onClick={() => {
                         navigate('/checkout');
-                        dispatch(toggleHiddenCart())
+                        dispatch(toggleHiddenCart()); 
                     }}
                     disabled={!cartItems.length}
                 >Iniciar pedido</Submit>
+    
               </ButtonContainerStyled>
             </PriceContainerStyled>
         </ContainerStyled>

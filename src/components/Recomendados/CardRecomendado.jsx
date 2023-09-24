@@ -9,12 +9,28 @@ import {
 import Button from '../UI/Button/Button';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cart/cartSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 import { formatPrice } from '../../utils/formatPrice';
 
 const CardRecomendado = ({img, title, price, id}) => {
 
   const dispatch = useDispatch()
+
+  const notify = () => {toast.success('Producto agregado correctamente', {
+    style: {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+    },
+  },
+  );}
+
+  const handleButton = () =>{
+    dispatch(addToCart({img, title, price, id}));
+    notify();
+ }
+ 
 
   return (
         <Card>
@@ -27,7 +43,8 @@ const CardRecomendado = ({img, title, price, id}) => {
             <CardPrice>{formatPrice(price)}</CardPrice>
           </CardText>
           <Button
-            onClick={ () => dispatch(addToCart({img, title, price, id}))}>Agregar</Button>
+            onClick={handleButton}>Agregar</Button>
+          <Toaster />
         </Card>
       );
     };

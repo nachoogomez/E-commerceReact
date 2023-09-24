@@ -2,14 +2,41 @@ import React from 'react';
 import { CheckoutDatosStyled, Form, Formik } from './CheckoutFormStyled';
 
 import Input from '../../UI/Input/Input';
-//import Loader from '../../UI/Loader/Loader';
 import Submit from '../../UI/Submit/Submit';
 
 
 import {checkoutInitialValues} from '../../../formik/initialValues'
 import { checkoutValidationSchema } from '../../../formik/validationSchema';
 
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { clearCart } from '../../../redux/cart/cartSlice';
+import { useDispatch } from 'react-redux';
+
 const CheckoutForm = ({cartItems}) => {
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const notify = () => {toast.success('Su compra ha sido realizada con exito', {
+    style: {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+    },
+  },
+  );}
+
+  const handleClick = () => {
+    notify();
+    setTimeout(() => {
+      navigate('/');
+      dispatch(clearCart());
+    }, 3000);
+    
+  };
+  
 
   return (
     <CheckoutDatosStyled>
@@ -59,9 +86,11 @@ const CheckoutForm = ({cartItems}) => {
             <div>
               <Submit 
                 disabled={!cartItems.length}
+                onClick={handleClick}
               >
                 Iniciar Pedido
               </Submit>
+              <Toaster/>
             </div>
           </Form>
         </Formik>

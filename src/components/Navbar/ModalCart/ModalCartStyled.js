@@ -18,6 +18,10 @@ padding: 2rem;
 background-color: var(--gray-bg);
 border-radius: 0 0 0 1rem;
 box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.3);
+
+@media (max-width: 600px) {
+    width: 80%;
+  }
 `;
 
 export const CloseButtonContainerStyled = styled.div`
@@ -50,6 +54,7 @@ export const TitleStyled = styled.div`
   display: flex;
   justify-content: space-between; 
   align-items: flex-start;
+  gap: 30px;
   margin: 0 0 2rem 0;
 
   & h1 {
@@ -134,6 +139,11 @@ export const ProductContainerStyled = styled.div`
     height: 80px;
     border-radius: 16px;
     object-fit: cover;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 80%;
   }
 `;
 
