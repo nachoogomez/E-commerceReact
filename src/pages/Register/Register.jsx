@@ -6,10 +6,12 @@ import LoginInput from '../../components/UI/LoginInput/LoginInput';
 import Submit from '../../components/UI/Submit/Submit';
 import { registerInitialValues } from '../../formik/initialValues';
 import { registerValidationSchema } from '../../formik/validationSchema';
+import { createUser } from '../../axios/axios-user';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
- 
+  const navigate = useNavigate();
 
   return (
     <LoginContainerStyled>
@@ -17,6 +19,14 @@ const Register = () => {
       <Formik
          initialValues={registerInitialValues}
          validationSchema={registerValidationSchema}
+         onSubmit={async (values, actions) =>{
+            const user = await createUser(values.name, values.email, values.password);
+            actions.resetForm();
+            console.log(user)
+          if (user) {
+            navigate("/login");
+          }
+         }} 
       >
         <Form>
           <LoginInput name="name" type='text' placeholder='Nombre' />

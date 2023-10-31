@@ -11,7 +11,7 @@ export const BurgerContainerStyled = styled(motion.div)`
     flex-direction: column;
     gap: 30px;
     height: calc(100vh - 4rem);
-    width: calc(40vh - 10rem);
+    width: calc(50vh - 10rem);
     padding: 2rem;
     background-color: var(--gray-bg);
     border-radius: 0 0 0 1rem;
@@ -25,6 +25,7 @@ export const LinksContainerStyled = styled.div`
   flex-direction: column;
   align-items: baseline;
   gap: 20px;
+ 
 
   a {
     padding: 1rem 1.5rem;
@@ -37,9 +38,8 @@ export const LinksContainerStyled = styled.div`
     align-items: center;
     gap: 5px;
   }
-
- 
 `;
+
 
 
 

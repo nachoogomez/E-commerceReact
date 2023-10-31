@@ -25,6 +25,7 @@ const Navbar = () => {
         <CartIcon />
         <BurguerIcon/>
       </CartNavStyled>
+      
     </NavbarContainerStyled>
   )
 }

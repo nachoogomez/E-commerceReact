@@ -33,8 +33,6 @@ export const UserContainerStyled = styled(LinkContainerStyled)`
 `;
 
 
-
-
 export const CartNavStyled = styled.div`
   position: relative;
   cursor: pointer;
@@ -77,6 +75,7 @@ export const SpanStyled = styled.span`
   &:hover {
     text-decoration: underline;
   }
+  color: white;
 `;
 
 export const ModalOverlayStyled = styled(motion.div)`
@@ -93,3 +92,6 @@ export const ModalOverlayStyled = styled(motion.div)`
       backdrop-filter: blur(4px);
     `}
 `;
+
+
+ 
